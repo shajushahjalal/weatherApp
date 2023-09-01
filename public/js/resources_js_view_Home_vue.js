@@ -20,7 +20,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    pagination: laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_1__["default"]
+    Bootstrap5Pagination: laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_1__.Bootstrap5Pagination
   },
   data: function data() {
     return {
@@ -40,22 +40,28 @@ __webpack_require__.r(__webpack_exports__);
     this.loadWeather();
     this.loadCountry();
   },
+  created: function created() {
+    var _this = this;
+    var loadData = setInterval(function () {
+      _this.loadWeather();
+    }, 600000);
+  },
   methods: {
     loadCountry: function loadCountry() {
-      var _this = this;
+      var _this2 = this;
       this.axios.get(_routes_Api__WEBPACK_IMPORTED_MODULE_0__.country_list).then(function (response) {
         if (response.data.status) {
-          _this.country_list_arr = response.data.countries;
+          _this2.country_list_arr = response.data.countries;
         } else {
           console.log(response.data.message);
         }
       });
     },
     loadCity: function loadCity() {
-      var _this2 = this;
+      var _this3 = this;
       this.axios.get(_routes_Api__WEBPACK_IMPORTED_MODULE_0__.city_list + "?country_id=" + this.country_id).then(function (response) {
         if (response.data.status) {
-          _this2.city_list_arr = response.data.cities;
+          _this3.city_list_arr = response.data.cities;
         } else {
           console.log(response.data.message);
         }
@@ -63,21 +69,21 @@ __webpack_require__.r(__webpack_exports__);
       this.loadWeather();
     },
     changeCity: function changeCity() {
-      var _this3 = this;
+      var _this4 = this;
       this.loadWeather();
       var city = this.city_list_arr.filter(function (list, index) {
-        if (list.id == _this3.city_id) {
-          _this3.center.lat = list.lat;
-          _this3.center.lon = list.lon;
+        if (list.id == _this4.city_id) {
+          _this4.center.lat = list.lat;
+          _this4.center.lon = list.lon;
         }
       });
     },
     loadWeather: function loadWeather() {
-      var _this4 = this;
+      var _this5 = this;
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       this.axios.get(_routes_Api__WEBPACK_IMPORTED_MODULE_0__.weather + "?page=" + page + "&city_id=" + this.city_id + "&country_id=" + this.country_id).then(function (response) {
         if (response.data.status) {
-          _this4.weather_data = response.data.weithers;
+          _this5.weather_data = response.data.weithers;
         } else {
           console.log(response.data.message);
         }
@@ -153,7 +159,9 @@ var _hoisted_16 = {
 };
 var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-12"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Last Weather Update")], -1 /* HOISTED */);
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
+  "class": "text-primary"
+}, "Last Weather Update")], -1 /* HOISTED */);
 var _hoisted_18 = {
   "class": "col-12 mt-3"
 };
@@ -171,7 +179,7 @@ var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 }, null, -1 /* HOISTED */);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_pagination = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("pagination");
+  var _component_Bootstrap5Pagination = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Bootstrap5Pagination");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
       return $data.country_id = $event;
@@ -198,13 +206,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(city.name), 9 /* TEXT, PROPS */, _hoisted_15);
   }), 256 /* UNKEYED_FRAGMENT */))], 544 /* HYDRATE_EVENTS, NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.city_id]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_19, [_hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.weather_data.data, function (_weather) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.capitalized(_weather.country)), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.capitalized(_weather.city_name)), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.capitalized(_weather.weather_condition)), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_weather.temp_celsius) + " ", 1 /* TEXT */), _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("C ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_weather.temp_feels) + " ", 1 /* TEXT */), _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("C ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_weather.humidity) + "% ", 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_weather.wind_speed) + " Km/h", 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.convertDate(_weather.created_at)), 1 /* TEXT */)]);
-  }), 256 /* UNKEYED_FRAGMENT */))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
-    align: "center",
+  }), 256 /* UNKEYED_FRAGMENT */))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Bootstrap5Pagination, {
     data: $data.weather_data,
-    onPaginationChangePage: _cache[4] || (_cache[4] = function ($event) {
-      return $options.loadWeather();
-    })
-  }, null, 8 /* PROPS */, ["data"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"row mt-5\">\r\n                            <GMapMap\r\n                                :center=\"center\"\r\n                                :zoom=\"10\"\r\n                                map-type-id=\"terrain\"\r\n                                style=\"width: 100%; height: 500px\" \r\n                            >\r\n                                <GMapCluster>\r\n                                <GMapMarker\r\n                                    :key=\"index\"\r\n                                    v-for=\"(m, index) in markers\"\r\n                                    :position=\"m.position\"\r\n                                    :clickable=\"true\"\r\n                                    :draggable=\"true\"\r\n                                    @click=\"center=m.position\"\r\n                                />\r\n                                </GMapCluster>\r\n                            </GMapMap>\r\n                        </div> ")])])]), _hoisted_24])]);
+    onPaginationChangePage: $options.loadWeather
+  }, null, 8 /* PROPS */, ["data", "onPaginationChangePage"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"row mt-5\">\r\n                            <GMapMap\r\n                                :center=\"center\"\r\n                                :zoom=\"10\"\r\n                                map-type-id=\"terrain\"\r\n                                style=\"width: 100%; height: 500px\" \r\n                            >\r\n                                <GMapCluster>\r\n                                <GMapMarker\r\n                                    :key=\"index\"\r\n                                    v-for=\"(m, index) in markers\"\r\n                                    :position=\"m.position\"\r\n                                    :clickable=\"true\"\r\n                                    :draggable=\"true\"\r\n                                    @click=\"center=m.position\"\r\n                                />\r\n                                </GMapCluster>\r\n                            </GMapMap>\r\n                        </div> ")])])]), _hoisted_24])]);
 }
 
 /***/ }),

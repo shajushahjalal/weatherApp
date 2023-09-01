@@ -24,7 +24,7 @@
 
                         <div class="row mt-5">
                             <div class="col-12">
-                                <h3>Last Weather Update</h3>
+                                <h3 class="text-primary">Last Weather Update</h3>
                             </div>
                             <div class="col-12 mt-3">
                                 <table class="table table-bordered">
@@ -55,7 +55,10 @@
                                 </table>                                
                             </div>
                             <div class="col-12">
-                                <pagination align="center" :data="weather_data" @pagination-change-page="loadWeather()"></pagination>
+                                <Bootstrap5Pagination
+                                    :data="weather_data"
+                                    @pagination-change-page="loadWeather"
+                                />
                             </div>
                         </div>
 
@@ -88,12 +91,14 @@
 
 <script>
     import {country_list, city_list, weather} from '../routes/Api';
-    import pagination from 'laravel-vue-pagination'
+    import { Bootstrap5Pagination } from 'laravel-vue-pagination';
+
+
     import moment from 'moment';
 
     export default{
         components:{
-            pagination
+            Bootstrap5Pagination
         },
         data(){
             return {
@@ -111,6 +116,11 @@
         mounted() {
             this.loadWeather();
             this.loadCountry();
+        },
+        created : function(){
+            const loadData = setInterval(() => {
+                this.loadWeather();
+            }, 600000);
         },
         methods : {
             loadCountry(){
