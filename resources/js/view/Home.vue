@@ -24,7 +24,7 @@
 
                         <div class="row mt-5">
                             <div class="col-12">
-                                <h3 class="text-primary">Last Weather Update</h3>
+                                <h3 class="text-primary">Latest Weather Update</h3>
                             </div>
                             <div class="col-12 mt-3">
                                 <table class="table table-bordered">

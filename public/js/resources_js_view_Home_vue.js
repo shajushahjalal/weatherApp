@@ -161,7 +161,7 @@ var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "col-12"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
   "class": "text-primary"
-}, "Last Weather Update")], -1 /* HOISTED */);
+}, "Latest Weather Update")], -1 /* HOISTED */);
 var _hoisted_18 = {
   "class": "col-12 mt-3"
 };
