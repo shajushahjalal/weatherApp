@@ -54,7 +54,7 @@
                                     </tbody>
                                 </table>                                
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 text-end">
                                 <Bootstrap5Pagination
                                     :data="weather_data"
                                     @pagination-change-page="loadWeather"
