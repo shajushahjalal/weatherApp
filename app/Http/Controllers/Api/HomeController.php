@@ -90,7 +90,7 @@ class HomeController extends Controller
                 $weithers = $qyery->select("weather.*", "cities.name as city_name", "countries.name as country")
                     ->orderBy("country", "ASC")
                     ->orderBy("id", "DESC")
-                    ->paginate(25);
+                    ->paginate(15);
 
             return response([
                 "status"    => true,

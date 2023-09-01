@@ -56,7 +56,7 @@
                             </div>
                             <div class="col-12 text-right">
                                 <Bootstrap5Pagination
-                                    :data="weather_data"
+                                    :data="weather_data" :align="right"
                                     @pagination-change-page="loadWeather"
                                 />
                             </div>
