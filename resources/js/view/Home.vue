@@ -62,25 +62,6 @@
                             </div>
                         </div>
 
-                        <!-- <div class="row mt-5">
-                            <GMapMap
-                                :center="center"
-                                :zoom="10"
-                                map-type-id="terrain"
-                                style="width: 100%; height: 500px" 
-                            >
-                                <GMapCluster>
-                                <GMapMarker
-                                    :key="index"
-                                    v-for="(m, index) in markers"
-                                    :position="m.position"
-                                    :clickable="true"
-                                    :draggable="true"
-                                    @click="center=m.position"
-                                />
-                                </GMapCluster>
-                            </GMapMap>
-                        </div> -->
                     </div>
                 </div>
             </div>
