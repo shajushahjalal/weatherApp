@@ -8,7 +8,7 @@
                         <div class="row">
                             <div class="col-12 col-sm-6 col-md-4">
                                 <label>Select Country</label>
-                                <select v-model="country_id" v-on:change="loadCity" class="form-control">
+                                <select v-model="country_id" v-on:change="changeCountry" class="form-control">
                                     <option value="" disabled >Select Country</option>
                                     <option v-for="country in country_list_arr" :value="country.id" >{{ country.name }}</option>
                                 </select>
@@ -133,7 +133,8 @@
                 })
             },
 
-            loadCity(){
+            changeCountry(){
+                this.city_id = "";
                 this.axios.get(city_list + "?country_id=" + this.country_id).then((response) => {
                     if(response.data.status){
                         this.city_list_arr = response.data.cities;
