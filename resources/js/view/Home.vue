@@ -20,6 +20,9 @@
                                     <option v-for="city in city_list_arr" :value="city.id">{{ city.name }}</option>
                                 </select>
                             </div>
+                            <div class="col-12 col-sm-6 col-md-4">
+                                <button class="btn btn-danger" v-on:click="resetSelection">Reset</button>
+                            </div>
                         </div>
 
                         <div class="row mt-5">
@@ -145,6 +148,11 @@
             },
             convertDate(date){               
                 return moment(String(date)).format('DD/mm/YY hh:mm ')
+            },
+            resetSelection(){
+                this.country_id = "";
+                this.city_id    = "";
+                this.loadWeather();
             }
 
         },
