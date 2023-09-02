@@ -39,7 +39,7 @@
                                             <th>Temperature</th>
                                             <th>Temperature Feels</th>
                                             <th>Humidity</th>
-                                            <th>Wind_speed</th>
+                                            <th>Wind Speed</th>
                                             <th>Updated Time</th>
                                         </tr>
                                     </thead>
@@ -147,7 +147,7 @@
                 return capitalizedFirst + rest;
             },
             convertDate(date){               
-                return moment(String(date)).format('DD/mm/YY hh:mm ')
+                return moment(String(date)).format('Do MMM,YYYY h:mm:ss')
             },
             resetSelection(){
                 this.country_id = "";
