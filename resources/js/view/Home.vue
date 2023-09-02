@@ -90,7 +90,8 @@
                 city_list_arr   : [],
                 weather_data    : {},
                 country_id      : "",
-                city_id         : "",            }
+                city_id         : "",            
+            }
         },
         mounted() {
             this.loadWeather();
@@ -147,7 +148,7 @@
                 return capitalizedFirst + rest;
             },
             convertDate(date){               
-                return moment(String(date)).format('Do MMM,YYYY h:mm:ss')
+                return moment(String(date)).format('DD-MM-YY h:mm a')
             },
             resetSelection(){
                 this.country_id = "";

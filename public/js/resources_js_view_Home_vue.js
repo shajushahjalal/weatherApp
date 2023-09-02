@@ -91,7 +91,7 @@ __webpack_require__.r(__webpack_exports__);
       return capitalizedFirst + rest;
     },
     convertDate: function convertDate(date) {
-      return moment__WEBPACK_IMPORTED_MODULE_2___default()(String(date)).format('Do MMM,YYYY h:mm:ss');
+      return moment__WEBPACK_IMPORTED_MODULE_2___default()(String(date)).format('DD-MM-YY h:mm a');
     },
     resetSelection: function resetSelection() {
       this.country_id = "";
