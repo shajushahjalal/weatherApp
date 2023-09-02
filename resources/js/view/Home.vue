@@ -21,7 +21,7 @@
                                 </select>
                             </div>
                             <div class="col-12 col-sm-6 col-md-4">
-                                <button class="btn btn-danger" v-on:click="resetSelection">Reset</button>
+                                <button class="btn btn-danger mt-4" v-on:click="resetSelection">Reset</button>
                             </div>
                         </div>
 
