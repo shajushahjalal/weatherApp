@@ -87,12 +87,7 @@
                 city_list_arr   : [],
                 weather_data    : {},
                 country_id      : "",
-                city_id         : "",
-
-                center: {lat: 51.093048, lng: 6.842120},
-                markers: [
-                ]
-            }
+                city_id         : "",            }
         },
         mounted() {
             this.loadWeather();
@@ -101,7 +96,7 @@
         created : function(){
             const loadData = setInterval(() => {
                 this.loadWeather();
-            }, 600000);
+            }, 300000);
         },
         methods : {
             loadCountry(){
