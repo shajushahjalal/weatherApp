@@ -19,6 +19,6 @@
     <div id="app">
     </div>
     
-    <script src="{{ asset('js/app.js') }}?v=1.05" ></script>
+    <script src="{{ asset('js/app.js') }}?v=1.06" ></script>
 </body>
 </html>

@@ -60,7 +60,7 @@
                             <div class="col-12 text-right">
                                 <Bootstrap5Pagination
                                     :data="weather_data" :align="right"
-                                    :limit="4"
+                                    :limit="2"
                                     @pagination-change-page="loadWeather"
                                 />
                             </div>

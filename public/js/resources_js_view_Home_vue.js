@@ -258,7 +258,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }), 256 /* UNKEYED_FRAGMENT */))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Bootstrap5Pagination, {
     data: $data.weather_data,
     align: _ctx.right,
-    limit: 4,
+    limit: 2,
     onPaginationChangePage: $options.loadWeather
   }, null, 8 /* PROPS */, ["data", "align", "onPaginationChangePage"])])])])])]), _hoisted_25])]);
 }
