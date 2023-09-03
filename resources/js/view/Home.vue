@@ -60,6 +60,7 @@
                             <div class="col-12 text-right">
                                 <Bootstrap5Pagination
                                     :data="weather_data" :align="right"
+                                    :limit="4"
                                     @pagination-change-page="loadWeather"
                                 />
                             </div>
@@ -76,8 +77,6 @@
 <script>
     import {country_list, city_list, weather} from '../routes/Api';
     import { Bootstrap5Pagination } from 'laravel-vue-pagination';
-
-
     import moment from 'moment';
 
     export default{
@@ -103,8 +102,8 @@
             }, 300000);
         },
         methods : {
-            loadCountry(){
-                this.axios.get(country_list).then((response) => {
+            async loadCountry(){
+                await this.axios.get(country_list).then((response) => {
                     if(response.data.status){
                         this.country_list_arr = response.data.countries;
                     }else{
@@ -113,9 +112,9 @@
                 })
             },
 
-            changeCountry(){
+            async changeCountry(){
                 this.city_id = "";
-                this.axios.get(city_list + "?country_id=" + this.country_id).then((response) => {
+                await this.axios.get(city_list + "?country_id=" + this.country_id).then((response) => {
                     if(response.data.status){
                         this.city_list_arr = response.data.cities;
                     }else{
@@ -133,8 +132,8 @@
                     }
                 });
             },
-            loadWeather(page=1){
-                this.axios.get(weather+"?page="+ page +"&city_id=" + this.city_id + "&country_id=" + this.country_id).then((response) => {
+            async loadWeather(page=1){
+                await this.axios.get(weather+"?page="+ page +"&city_id=" + this.city_id + "&country_id=" + this.country_id).then((response) => {
                     if(response.data.status){
                         this.weather_data = response.data.weithers;
                     }else{
